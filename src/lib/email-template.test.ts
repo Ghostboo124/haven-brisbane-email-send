@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { personalizeText, renderBlocks, type ContentBlock } from './email-template';
-import type { Attendee } from './csv';
+import { strict as assert } from 'node:assert';
+import { personalizeText, renderBlocks, type ContentBlock } from './email-template.ts';
+import type { Attendee } from './csv.ts';
 
 const attendee: Attendee = {
 	email: 'test@example.org',
@@ -8,19 +8,17 @@ const attendee: Attendee = {
 	last_name: 'Doe'
 };
 
-describe('email personalization', () => {
-	it('replaces placeholders in plain text', () => {
-		expect(personalizeText('Hello {{first_name}} {{last_name}}', attendee)).toBe('Hello Jane Doe');
-	});
+Deno.test('personalizeText replaces placeholders in plain text', () => {
+	assert.equal(personalizeText('Hello {{first_name}} {{last_name}}', attendee), 'Hello Jane Doe');
+});
 
-	it('renders personalized content blocks', () => {
-		const blocks: ContentBlock[] = [
-			{ id: '1', type: 'heading', text: 'Hi {{first_name}}' },
-			{ id: '2', type: 'paragraph', text: 'Your email is {{email}}' }
-		];
+Deno.test('renderBlocks renders personalized content blocks', () => {
+	const blocks: ContentBlock[] = [
+		{ id: '1', type: 'heading', text: 'Hi {{first_name}}' },
+		{ id: '2', type: 'paragraph', text: 'Your email is {{email}}' }
+	];
 
-		const html = renderBlocks(blocks, attendee);
-		expect(html).toContain('Hi Jane');
-		expect(html).toContain('Your email is test@example.org');
-	});
+	const html = renderBlocks(blocks, attendee);
+	assert.ok(html.includes('Hi Jane'));
+	assert.ok(html.includes('Your email is test@example.org'));
 });

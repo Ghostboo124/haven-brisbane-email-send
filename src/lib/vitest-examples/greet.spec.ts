@@ -1,8 +1,6 @@
-import { describe, it, expect } from 'vitest';
-import { greet } from './greet';
+import { strict as assert } from 'node:assert';
+import { greet } from './greet.ts';
 
-describe('greet', () => {
-	it('returns a greeting', () => {
-		expect(greet('Svelte')).toBe('Hello, Svelte!');
-	});
+Deno.test('greet returns a greeting', () => {
+	assert.equal(greet('Svelte'), 'Hello, Svelte!');
 });

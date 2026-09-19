@@ -12,11 +12,7 @@ example@example.com,John,Black
 
 ## Setup
 
-1. Install dependencies:
-
-```bash
-npm install
-```
+1. Install Deno (v2+).
 
 2. Set your Gmail token/key (used as bearer token for Gmail API):
 
@@ -27,13 +23,13 @@ export GMAIL_API_KEY="your-gmail-api-token"
 3. Run locally:
 
 ```bash
-npm run dev
+deno task dev
 ```
 
 Open the app, upload a CSV, build email blocks, use placeholders like `{{first_name}}`, preview per attendee, and send emails.
 
 ## Validation
 
-- Type-check: `npm run check`
-- Unit tests: `npm test`
-- Build: `npm run build`
+- Type-check: `deno task check`
+- Unit tests: `deno task test`
+- Build: `deno task build`

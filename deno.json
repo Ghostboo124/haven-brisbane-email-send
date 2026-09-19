@@ -1,0 +1,19 @@
+{
+  "nodeModulesDir": "auto",
+  "imports": {
+    "@sveltejs/adapter-auto": "npm:@sveltejs/adapter-auto@^7.0.1",
+    "@sveltejs/kit": "npm:@sveltejs/kit@2.63.0",
+    "@sveltejs/kit/vite": "npm:@sveltejs/kit@2.63.0/vite",
+    "svelte": "npm:svelte@^5.56.1",
+    "vite": "npm:vite@7.3.6"
+  },
+  "tasks": {
+    "dev": "deno run -A npm:vite@7.3.6 dev",
+    "build": "deno run -A npm:vite@7.3.6 build",
+    "preview": "deno run -A npm:vite@7.3.6 preview",
+    "sync": "deno run -A npm:@sveltejs/kit@2.63.0/svelte-kit sync",
+    "check": "deno task sync && deno run -A npm:svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "deno task sync && deno run -A npm:svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "deno test -A --no-check src/**/*.test.ts src/**/*.spec.ts"
+  }
+}
