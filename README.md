@@ -14,10 +14,10 @@ example@example.com,John,Black
 
 1. Install Deno (v2+).
 
-2. Set your Gmail token/key (used as bearer token for Gmail API):
+2. Create a .env with your Gmail token/key:
 
-```bash
-export GMAIL_API_KEY="your-gmail-api-token"
+```.env
+GMAIL_API_KEY="your-gmail-api-token"
 ```
 
 3. Run locally:
