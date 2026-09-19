@@ -1,18 +1,2 @@
-# AI training crawlers (blocked)
-User-agent: GPTBot
-User-agent: ClaudeBot
-User-agent: CCBot
-User-agent: Bytespider
-User-agent: meta-externalagent
-Disallow: /
-
-# Other / data crawlers (blocked)
-User-agent: Amazonbot
-User-agent: cohere-ai
-User-agent: Diffbot
-User-agent: ImagesiftBot
-Disallow: /
-
-# All other crawlers
 User-agent: *
-Allow: /
+Disallow: /
