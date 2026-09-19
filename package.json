@@ -11,5 +11,13 @@
     "svelte-check": "^4.6.0",
     "typescript": "^6.0.3",
     "vite": "7.3.6"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sync": "svelte-kit sync",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   }
 }
